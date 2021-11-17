@@ -31,6 +31,11 @@
     <mu2>0.2</mu2>
     <material>Gazebo/Orange</material>
   </gazebo>
+  <gazebo reference="link4">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
   <gazebo reference="camera_link">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
