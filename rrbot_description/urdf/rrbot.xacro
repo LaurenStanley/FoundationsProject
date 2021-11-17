@@ -128,8 +128,8 @@
     <parent link="link3"/>
     <child link="link4"/>
     <origin xyz="${width2} 0 ${height2}" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="0.1" lower="-.5" upper="0" velocity="0.15"/>
+    <axis xyz="0 0 -1"/>
+    <limit effort="0.5" lower="-.01" upper=".99" velocity="0.15"/>
   </joint>
 
  <link name="link4">
