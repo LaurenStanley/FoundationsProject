@@ -54,12 +54,13 @@
     </inertial>
   </link>
 
-  <joint name="joint1" type="continuous">
+  <joint name="joint1" type="revolute">
     <parent link="link1"/>
     <child link="link2"/>
     <origin xyz="0 0 ${height1}" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
     <dynamics damping="0.7"/>
+     <limit effort="80" lower="-3.141" upper="3.141" velocity="0.15"/>
   </joint>
 
   <!-- Middle Link -->
@@ -89,11 +90,12 @@
     </inertial>
   </link>
 
-  <joint name="joint2" type="continuous">
+  <joint name="joint2" type="revolute">
     <parent link="link2"/>
     <child link="link3"/>
     <origin xyz="${width2/2} 0 ${height2}" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
+    <limit effort="80" lower="-3.141" upper="3.141" velocity="0.15"/>
     <dynamics damping="0.7"/>
   </joint>
 
@@ -129,7 +131,7 @@
     <child link="link4"/>
     <origin xyz="${width2} 0 ${height2}" rpy="0 0 0"/>
     <axis xyz="0 0 -1"/>
-    <limit effort="0.5" lower="-.01" upper=".99" velocity="0.15"/>
+    <limit effort="80" lower="-.01" upper=".99" velocity="0.15"/>
   </joint>
 
  <link name="link4">
@@ -177,6 +179,18 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
